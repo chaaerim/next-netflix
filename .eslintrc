@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb", "prettier"],
+  "extends": ["next/core-web-vitals", "airbnb", "prettierrc"],
   "rules": {
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
