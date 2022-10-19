@@ -5,6 +5,7 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/react-in-jsx-scope": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "no-use-before-define": ["error", { "variables": false }]
   }
 }
