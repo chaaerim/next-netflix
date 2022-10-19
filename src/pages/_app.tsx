@@ -1,5 +1,4 @@
 import '../../styles/globals.css';
-import { RecoilRoot } from 'recoil';
 import type { AppProps } from 'next/app';
 import {
   Hydrate,
@@ -18,9 +17,7 @@ function MyApp({
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps?.dehydratedState}>
-        <RecoilRoot>
-          <Component {...pageProps} />
-        </RecoilRoot>
+        <Component {...pageProps} />
       </Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>
