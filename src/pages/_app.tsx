@@ -6,7 +6,6 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import React from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 function MyApp({
   Component,
@@ -19,7 +18,6 @@ function MyApp({
       <Hydrate state={pageProps?.dehydratedState}>
         <Component {...pageProps} />
       </Hydrate>
-      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
