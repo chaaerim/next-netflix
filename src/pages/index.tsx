@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import lottie from 'lottie-web';
+import Lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import netflixLogo from '@public/netflix-logo.json';
@@ -9,7 +9,7 @@ function Home() {
   const logoContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const lottieAnimation = lottie.loadAnimation({
+    const lottieAnimation = Lottie.loadAnimation({
       container: logoContainer.current as HTMLDivElement,
       renderer: 'svg',
       loop: false,
@@ -28,11 +28,9 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <Container>
-        <div ref={logoContainer} />
-      </Container>
-    </div>
+    <Container>
+      <div ref={logoContainer} />
+    </Container>
   );
 }
 
