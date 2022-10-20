@@ -7,6 +7,11 @@ body {
 
   background: #000000;
   color: #ffffff;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 a {
@@ -14,17 +19,41 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+input {
+  background: transparent;
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+
 * {
   box-sizing: border-box;
 }
 
-@media (min-width: 400px) {
-  body {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+@media (max-width: 400px) {
+  main {
+    width: 100vw;
   }
-
+}
+@media (min-width: 400px) {
   main {
     width: 400px;
   }

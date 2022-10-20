@@ -9,6 +9,7 @@
     "react/react-in-jsx-scope": 0,
     "react/jsx-props-no-spreading": 0,
     "no-use-before-define": ["error", { "variables": false }],
+    "import/prefer-default-export": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

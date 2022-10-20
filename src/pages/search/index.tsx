@@ -1,4 +1,4 @@
-import Search from '@components/searchPage/Search';
+import Search from '@components/searchPage';
 import useSearch from '@components/searchPage/useSearch';
 
 function SearchPage() {
@@ -6,8 +6,8 @@ function SearchPage() {
 
   return (
     <Search value={{ input }}>
-      <Search.Title />
       <Search.Input onChange={handleInputChange} onReset={handleInputReset} />
+      <Search.Title />
       <Search.Result />
     </Search>
   );
