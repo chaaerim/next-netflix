@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const Title = styled.p`
+function SearchTitle() {
+  return <Title>Top Searches</Title>;
+}
+
+export default SearchTitle;
+
+const Title = styled.p`
   font-size: 27px;
   font-weight: 700;
   line-height: 20px;
@@ -8,6 +14,5 @@ export const Title = styled.p`
 
   color: #ffffff;
 
-  margin-top: 21px;
-  margin-left: 10px;
+  margin: 21px 10px;
 `;
