@@ -27,10 +27,10 @@ function SearchResults() {
     );
   }
 
-  return (
-    <Container>
-      {isSuccess &&
-        data.results.map((movie) => (
+  if (isSuccess)
+    return (
+      <Container>
+        {data.results.map((movie) => (
           <Item key={movie.id}>
             <FlexBox>
               {movie.backdrop_path ? (
@@ -48,15 +48,17 @@ function SearchResults() {
             <PlayButton type="button">
               <Image
                 alt="play movie"
-                src="/assets/search-play.svg"
+                src="/assets/searchPage/search-play.svg"
                 width={28}
                 height={28}
               />
             </PlayButton>
           </Item>
         ))}
-    </Container>
-  );
+      </Container>
+    );
+
+  return <Container />;
 }
 
 export async function getServerSideProps() {
@@ -73,7 +75,9 @@ export async function getServerSideProps() {
 
 export default SearchResults;
 
-const Container = styled.ul``;
+const Container = styled.ul`
+  padding-bottom: 50px;
+`;
 
 const Item = styled.div`
   width: 100%;

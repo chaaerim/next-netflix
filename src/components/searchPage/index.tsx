@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ISearchContextProps } from '@interfaces/interface';
+import Footer from '@components/common/Footer';
 import SearchTitle from './SearchTitle';
 import SearchResults from './SearchResults';
 import SearchInput from './SearchInput';
@@ -10,6 +11,7 @@ function SearchMain({ children, value }: ISearchContextProps) {
   return (
     <SearchProvider value={value}>
       <Container>{children}</Container>
+      <Footer />
     </SearchProvider>
   );
 }

@@ -11,7 +11,7 @@ function SearchInput({ onChange, onReset }: IInputEventProps) {
       <FlexBox>
         <Image
           alt="search icon"
-          src="/assets/search.svg"
+          src="/assets/searchPage/search.svg"
           width={20}
           height={20}
         />
@@ -24,7 +24,7 @@ function SearchInput({ onChange, onReset }: IInputEventProps) {
       <button type="button" onClick={onReset}>
         <Image
           alt="reset"
-          src="/assets/search-reset.svg"
+          src="/assets/searchPage/search-reset.svg"
           width={15}
           height={15}
         />
