@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { ISearchContextProps, IInputEventProps } from '@interfaces/interface';
 import { SearchProvider, useSearchContext } from './SearchContext';
 import * as SInput from './css/SearchInputStyle';
+import * as STitle from './css/SearchTitleStyle';
 
 function SearchMain({ children, value }: ISearchContextProps) {
   return (
@@ -14,7 +15,7 @@ function SearchMain({ children, value }: ISearchContextProps) {
 }
 
 function SearchTitle() {
-  return <p>Top Searches</p>;
+  return <STitle.Title>Top Searches</STitle.Title>;
 }
 
 function SearchResults() {

@@ -16,6 +16,7 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   font-size: 16px;
+  font-weight: 400;
   letter-spacing: 0.21px;
   color: inherit;
 
