@@ -18,7 +18,7 @@ function Home() {
     });
 
     const timer = setTimeout(() => {
-      router.push('/메인페이지');
+      router.push('/home');
     }, 6000);
 
     return () => {

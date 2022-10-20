@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const footerItems = [
   {
@@ -27,9 +28,11 @@ const footerItems = [
 
 function Footer() {
   const router = useRouter();
+  const [currentPath, setCurrentPath] = useState(router.pathname);
 
-  const handleRouting = (route: string) => {
-    switch (route) {
+  const handleRouting = ({ src, text }: { src: string; text: string }) => {
+    setCurrentPath(`/${src}`);
+    switch (text) {
       case 'Home':
         router.push('/home');
         break;
@@ -42,17 +45,23 @@ function Footer() {
 
   return (
     <Container>
-      {footerItems.map((item) => (
-        <Item key={item.text} onClick={() => handleRouting(item.text)}>
-          <Image
-            alt={item.text}
-            src={`/assets/footer/${item.src}.svg`}
-            width={24}
-            height={24}
-          />
-          <Title selected={router.pathname === item.src}>{item.text}</Title>
-        </Item>
-      ))}
+      {footerItems.map((item) => {
+        const isSelected = currentPath === `/${item.src}`;
+
+        return (
+          <Item key={item.text} onClick={() => handleRouting(item)}>
+            <Image
+              alt={item.text}
+              src={`/assets/footer/${item.src}${
+                isSelected ? '-select' : ''
+              }.svg`}
+              width={24}
+              height={24}
+            />
+            <Title selected={isSelected}>{item.text}</Title>
+          </Item>
+        );
+      })}
     </Container>
   );
 }
