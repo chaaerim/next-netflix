@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-function SearchTitle() {
-  return <Title>Top Searches</Title>;
+function SearchTitle({ children }: { children: string }) {
+  return <Title>{children}</Title>;
 }
 
 export default SearchTitle;

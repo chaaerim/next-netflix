@@ -7,7 +7,7 @@ function SearchPage() {
   return (
     <Search value={{ input }}>
       <Search.Input onChange={handleInputChange} onReset={handleInputReset} />
-      <Search.Title />
+      <Search.Title>Top Searches</Search.Title>
       <Search.Result />
     </Search>
   );
