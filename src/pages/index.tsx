@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-import netflixLogo from '@public/netflix-logo.json';
+import netflixLogo from '@assets/netflix-logo.json';
 
 function Home() {
   const router = useRouter();
@@ -18,7 +18,7 @@ function Home() {
     });
 
     const timer = setTimeout(() => {
-      router.push('/메인페이지');
+      router.push('/home');
     }, 6000);
 
     return () => {
