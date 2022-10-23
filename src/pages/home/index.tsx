@@ -1,9 +1,10 @@
 import Footer from '@components/common/Footer';
+import Header from '@components/common/Header';
 
 function HomePage() {
   return (
     <>
-      <h1>홈페이지닷</h1>
+      <Header />
       <Footer />
     </>
   );
