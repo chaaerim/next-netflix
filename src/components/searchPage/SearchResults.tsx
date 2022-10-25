@@ -4,11 +4,12 @@ import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { IMovieListResponse } from '@interfaces/interface';
 import { useSearchContext } from './SearchContext';
 import { getInitialSearchList, getSearchList } from '../../api/getSearch';
+import queryKeys from '../../api/queryKeys';
 
 function SearchResults() {
   const { input } = useSearchContext();
   const { data, isSuccess, isLoading } = useQuery<IMovieListResponse>(
-    ['search', input],
+    [queryKeys.Search, input],
     () => (input ? getSearchList(input) : getInitialSearchList())
   );
 
@@ -64,7 +65,10 @@ function SearchResults() {
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchInfiniteQuery(['search', ''], getInitialSearchList);
+  await queryClient.prefetchInfiniteQuery(
+    [queryKeys.Search, ''],
+    getInitialSearchList
+  );
 
   return {
     props: {
