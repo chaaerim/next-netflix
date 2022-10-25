@@ -1,26 +1,19 @@
-import styled from 'styled-components';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const buttonItems = [
-  { src: 'plusButton.svg', text: 'My List', isPlay: false },
-  {
-    src: 'playButton.svg',
-    text: 'Play',
-    isPlay: true,
-  },
-  { src: 'infoButton.svg', text: 'Info', isPlay: false },
+  { id: 1, src: 'plusButton.svg', text: 'My List', isPlay: false },
+  { id: 2, src: 'playButton.svg', text: 'Play', isPlay: true },
+  { id: 3, src: 'infoButton.svg', text: 'Info', isPlay: false },
 ];
 function HomeButtons() {
   return (
     <ButtonContainer>
-      {buttonItems.map((item) => {
-        return (
-          <Item key={Date.now()} isPlay={item.isPlay}>
-            <Icon src={`/assets/homeButtons/${item.src}`} />
-            <Text isPlay={item.isPlay}>{item.text}</Text>
-          </Item>
-        );
-      })}
+      {buttonItems.map((item) => (
+        <Item key={item.id} isPlay={item.isPlay}>
+          <Icon src={`/assets/homeButtons/${item.src}`} />
+          <Text isPlay={item.isPlay}>{item.text}</Text>
+        </Item>
+      ))}
     </ButtonContainer>
   );
 }

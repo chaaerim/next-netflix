@@ -7,6 +7,7 @@ function HomePage() {
   return (
     <>
       <Header />
+      <HomeBackground />
       <HomeButtons />
       <Footer />
     </>

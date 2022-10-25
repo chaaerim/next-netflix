@@ -1,5 +1,4 @@
 import client from './client';
-//.env파일 받고 바꾸기...!!!
 
 export function getNowPlaying() {
   return client
