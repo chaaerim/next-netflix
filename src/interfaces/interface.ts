@@ -45,6 +45,15 @@ export interface IMovieListResponse {
   total_results: number;
 }
 
+export interface IMoviesContext {
+  results: IMovieInformation[];
+}
+
+export interface IUpComingMoviesContext {
+  id: number;
+  results: IMovieInformation[] | undefined;
+}
+
 export interface IResponse {
   dates: { maximum: string; minimum: string };
   page: number;
