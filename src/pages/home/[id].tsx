@@ -1,10 +1,34 @@
+import Footer from '@components/common/Footer';
 import Detail from '@components/detailPage/';
-import HomeBackground from '@components/homePage/HomeBackground';
+import ListTitle from '@components/homePage/movies/ListTitle';
+import { IMovieInformation, IPrams } from '@interfaces/interface';
+import { useQuery } from '@tanstack/react-query';
 
-function DetailPage() {
+import { getDetail } from '../../api/getMovies';
+import queryKeys from '../../api/queryKeys';
+
+export async function getServerSideProps({ params }: { params: IPrams }) {
+  const movie_id = params.id;
+
+  return {
+    props: {
+      movie_id: movie_id,
+    },
+  };
+}
+
+function DetailPage({ movie_id }: { movie_id: string }) {
+  const { data, status } = useQuery<IMovieInformation>(
+    [queryKeys.Detail, movie_id],
+    () => getDetail(movie_id)
+  );
+
   return (
     <Detail>
+      <Detail.MovieImg image={data?.backdrop_path} />
       <Detail.PlayButton />
+      <ListTitle id={1}>Previews</ListTitle>
+      <Footer />
     </Detail>
   );
 }

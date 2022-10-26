@@ -23,3 +23,9 @@ export function getUpcoming() {
     .get(`movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
     .then((res) => res.data);
 }
+
+export function getDetail(movie_id: string) {
+  return client
+    .get(`movie/${movie_id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
+    .then((res) => res.data);
+}

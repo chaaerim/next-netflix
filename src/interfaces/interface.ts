@@ -74,5 +74,9 @@ export interface IResponse {
 
 export interface IResultsProps {
   contents: IMovieInformation[] | undefined;
-  id: nuber;
+  id: number;
+}
+
+export interface IPrams {
+  id: string;
 }

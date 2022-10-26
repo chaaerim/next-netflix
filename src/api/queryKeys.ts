@@ -5,6 +5,7 @@ const queryKeys = {
   TopRated: 'toprated',
   Upcoming: 'upcoming',
   BackGround: 'background',
+  Detail: 'detail',
 };
 
 export default queryKeys;

@@ -1,5 +1,6 @@
 import { IComponentProps } from '@interfaces/interface';
 import styled from 'styled-components';
+import DetailImage from './DetailImage';
 import PlayButton from './playButton';
 
 function Detail({ children }: IComponentProps) {
@@ -12,6 +13,7 @@ function Detail({ children }: IComponentProps) {
 
 export default Object.assign(Detail, {
   PlayButton: PlayButton,
+  MovieImg: DetailImage,
 });
 
 const Container = styled.main``;
