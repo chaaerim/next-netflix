@@ -1,16 +1,15 @@
 import Footer from '@components/common/Footer';
 import Header from '@components/common/Header';
-import HomeBackground from '@components/homePage/HomeBackground';
-import HomeButtons from '@components/homePage/HomeButtons';
+import Home from '@components/homePage/';
 
 function HomePage() {
   return (
-    <>
+    <Home>
       <Header />
-      <HomeBackground />
-      <HomeButtons />
+      <Home.Background />
+      <Home.ButtonBar />
       <Footer />
-    </>
+    </Home>
   );
 }
 

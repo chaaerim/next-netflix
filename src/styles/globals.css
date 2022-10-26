@@ -53,13 +53,15 @@ input:focus {
 
 @media (max-width: 400px) {
   main,
-  footer {
+  footer,
+  nav {
     width: 100vw;
   }
 }
 @media (min-width: 400px) {
   main,
-  footer {
+  footer,
+  nav {
     width: 400px;
   }
 }
