@@ -2,8 +2,7 @@ import Footer from '@components/common/Footer';
 import Header from '@components/common/Header';
 import Home from '@components/homePage/';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import { createContext, useContext } from 'react';
-import { IResponse, IUpComingMoviesContext } from '@interfaces/interface';
+import { IResponse } from '@interfaces/interface';
 
 import {
   getNowPlaying,
@@ -12,7 +11,6 @@ import {
   getUpcoming,
 } from '../../api/getMovies';
 import queryKeys from '../../api/queryKeys';
-import MovieLists from '@components/homePage/movies/MovieLists';
 
 function HomePage() {
   const { data: upComingMovies, status: upComingStatus } = useQuery<IResponse>(

@@ -20,4 +20,6 @@ export default Object.assign(Home, {
   MovieLists: MovieLists,
 });
 
-const Container = styled.main``;
+const Container = styled.main`
+  padding-bottom: 60px;
+`;

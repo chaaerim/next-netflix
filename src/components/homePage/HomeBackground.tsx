@@ -25,8 +25,6 @@ function HomeBackground() {
     getNowPlaying
   );
 
-  console.log(data);
-
   return (
     <BackgroundImg
       src={`${process.env.NEXT_PUBLIC_POSTER_PATH}${data?.results[2]?.backdrop_path}`}

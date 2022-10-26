@@ -1,14 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Key } from 'react';
 import { useRouter } from 'next/router';
-import { IMovieInformation } from '@interfaces/interface';
+import { IResultsProps } from '@interfaces/interface';
 
-function MovieLists({
-  contents,
-  id,
-}: {
-  contents: IMovieInformation[] | undefined;
-}) {
+function MovieLists({ contents, id }: IResultsProps) {
   const router = useRouter();
   function onClick(id: number) {
     router.push(`home/${id}`);
@@ -37,7 +31,6 @@ export default MovieLists;
 
 const Container = styled.div`
   display: flex;
-  height: 161px;
   overflow-y: auto;
 `;
 const Item = styled.div`
@@ -56,5 +49,6 @@ const MovieImg = styled.img<{ value: number }>`
       width: 102px;
       height: 102px;
       border-radius: 50%;
+      margin-bottom: 20px;
     `};
 `;

@@ -1,3 +1,12 @@
-function Detail() {}
+import Detail from '@components/detailPage/';
+import HomeBackground from '@components/homePage/HomeBackground';
 
-export default Detail;
+function DetailPage() {
+  return (
+    <Detail>
+      <Detail.PlayButton />
+    </Detail>
+  );
+}
+
+export default DetailPage;
