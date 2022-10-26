@@ -6,4 +6,20 @@ export function getNowPlaying() {
     .then((res) => res.data);
 }
 
-export function getPopular() {}
+export function getPopular() {
+  return client
+    .get(`movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
+    .then((res) => res.data);
+}
+
+export function getTopRated() {
+  return client
+    .get(`movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
+    .then((res) => res.data);
+}
+
+export function getUpcoming() {
+  return client
+    .get(`movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
+    .then((res) => res.data);
+}
