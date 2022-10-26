@@ -11,6 +11,12 @@ body {
 
   background: #000000;
   color: #ffffff;
+
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 a {

@@ -23,7 +23,7 @@ export default HomeButtons;
 const ButtonContainer = styled.div`
   margin: auto;
   height: 45px;
-  width: 259px;
+  width: 65%;
   display: flex;
   justify-content: space-between;
 `;
