@@ -28,6 +28,7 @@ function DetailPage({ movie_id }: { movie_id: string }) {
       <Detail.MovieImg image={data?.backdrop_path} />
       <Detail.PlayButton />
       <ListTitle id={1}>Previews</ListTitle>
+      <Detail.Description text={data?.overview}></Detail.Description>
       <Footer />
     </Detail>
   );
