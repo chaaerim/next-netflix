@@ -18,4 +18,6 @@ export default Object.assign(Detail, {
   Description: DetailDescription,
 });
 
-const Container = styled.main``;
+const Container = styled.main`
+  padding-bottom: 60px;
+`;
