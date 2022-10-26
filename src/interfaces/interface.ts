@@ -10,6 +10,12 @@ export interface ISearchContextProps extends IComponentProps {
   };
 }
 
+export interface IListTitleProps extends IComponentProps {
+  value: {
+    id: number;
+  };
+}
+
 export interface IInputEventProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onReset: () => void;

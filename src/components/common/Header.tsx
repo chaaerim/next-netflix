@@ -7,7 +7,7 @@ function Header() {
     <HeaderContainer>
       <Logo src="/assets/header/netflix-icon.svg" />
       {headerItems.map((item) => {
-        return <Item key={Date.now()}>{item}</Item>;
+        return <Item>{item}</Item>;
       })}
     </HeaderContainer>
   );
