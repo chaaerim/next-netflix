@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import Image from 'next/image';
-import { useEffect } from 'react';
 import queryKeys from '../../api/queryKeys';
 import { getNowPlaying } from '../../api/getMovies';
 import { IResponse } from '@interfaces/interface';
@@ -10,7 +8,7 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchInfiniteQuery(
-    [queryKeys.NowPlaying],
+    [queryKeys.BackGround],
     getNowPlaying
   );
 
@@ -23,13 +21,13 @@ export async function getServerSideProps() {
 
 function HomeBackground() {
   const { data, status } = useQuery<IResponse>(
-    [queryKeys.NowPlaying],
+    [queryKeys.BackGround],
     getNowPlaying
   );
 
   return (
     <BackgroundImg
-      src={`${process.env.NEXT_PUBLIC_POSTER_PATH}${data?.results[0]?.backdrop_path}`}
+      src={`${process.env.NEXT_PUBLIC_POSTER_PATH}${data?.results[2]?.backdrop_path}`}
     />
   );
 }
