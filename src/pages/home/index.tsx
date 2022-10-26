@@ -3,11 +3,7 @@ import Header from '@components/common/Header';
 import Home from '@components/homePage/';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { createContext, useContext } from 'react';
-import {
-  IMoviesContext,
-  IResponse,
-  IUpComingMoviesContext,
-} from '@interfaces/interface';
+import { IResponse, IUpComingMoviesContext } from '@interfaces/interface';
 
 import {
   getNowPlaying,
@@ -17,6 +13,45 @@ import {
 } from '../../api/getMovies';
 import queryKeys from '../../api/queryKeys';
 import MovieLists from '@components/homePage/movies/MovieLists';
+
+function HomePage() {
+  const { data: upComingMovies, status: upComingStatus } = useQuery<IResponse>(
+    [queryKeys.Upcoming],
+    getUpcoming
+  );
+  const { data: nowPlayingMovies, status: nowPlayingStatus } =
+    useQuery<IResponse>([queryKeys.NowPlaying], getNowPlaying);
+  const { data: topRatedMovies, status: topRatedStatus } = useQuery<IResponse>(
+    [queryKeys.TopRated],
+    getTopRated
+  );
+  const { data: popularMovies, status: popularStatus } = useQuery<IResponse>(
+    [queryKeys.Popular],
+    getPopular
+  );
+
+  return (
+    <Home>
+      <Header />
+      <Home.Background />
+      <Home.ButtonBar />
+      <Home.ListTitle id={1}>Previews</Home.ListTitle>
+      <Home.MovieLists id={1} contents={upComingMovies?.results} />
+      <Home.ListTitle id={0}>Now Playing</Home.ListTitle>
+      <Home.MovieLists id={0} contents={nowPlayingMovies?.results} />
+      <Home.ListTitle id={0}>Top Rated</Home.ListTitle>
+      <Home.MovieLists id={0} contents={topRatedMovies?.results} />
+      <Home.ListTitle id={0}>Popular</Home.ListTitle>
+      <Home.MovieLists
+        id={0}
+        contents={popularMovies?.results}
+      ></Home.MovieLists>
+      <Footer />
+    </Home>
+  );
+}
+
+export default HomePage;
 
 //api fetching with SSR
 export async function getServerSideProps() {
@@ -38,60 +73,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
-// Previews 조건부 스타일링을 위한 context
-const Preview = createContext({ id: 0 });
-export function useListTitleContext() {
-  return useContext(Preview);
-}
-
-//
-const PreviewMovies = createContext<IUpComingMoviesContext>({
-  id: 0,
-  results: [],
-});
-export function useMoviesContext() {
-  return useContext(PreviewMovies);
-}
-
-function HomePage() {
-  const { data: upComingMovies, status: upComingStatus } = useQuery<IResponse>(
-    [queryKeys.Upcoming],
-    getUpcoming
-  );
-  const { data: nowPlayingMovies, status: nowPlayingStatus } =
-    useQuery<IResponse>([queryKeys.NowPlaying], getNowPlaying);
-  const { data: topRatedMovies, status: topRatedStatus } = useQuery<IResponse>(
-    [queryKeys.TopRated],
-    getTopRated
-  );
-  const { data: popularMovies, status: popularStatus } = useQuery<IResponse>(
-    [queryKeys.Popular],
-    getPopular
-  );
-
-  const id = 1;
-  const results = upComingMovies?.results;
-
-  console.log(nowPlayingMovies);
-
-  return (
-    <Home>
-      <Header />
-      <Home.Background />
-      <Home.ButtonBar />
-      <Preview.Provider value={{ id }}>
-        <Home.ListTitle>Previews</Home.ListTitle>
-        <PreviewMovies.Provider value={{ id, results }}>
-          <MovieLists />
-        </PreviewMovies.Provider>
-      </Preview.Provider>
-      <Home.ListTitle>Now Playing</Home.ListTitle>
-      <Home.ListTitle>Top Rated</Home.ListTitle>
-      <Home.ListTitle>Popular</Home.ListTitle>
-      <Footer />
-    </Home>
-  );
-}
-
-export default HomePage;

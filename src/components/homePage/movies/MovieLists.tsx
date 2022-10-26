@@ -1,19 +1,22 @@
-import { useMoviesContext } from '../../../pages/home';
 import styled, { css } from 'styled-components';
 import { Key } from 'react';
 import { useRouter } from 'next/router';
+import { IMovieInformation } from '@interfaces/interface';
 
-function MovieLists() {
-  const { id, results } = useMoviesContext();
+function MovieLists({
+  contents,
+  id,
+}: {
+  contents: IMovieInformation[] | undefined;
+}) {
   const router = useRouter();
   function onClick(id: number) {
     router.push(`home/${id}`);
   }
 
-  console.log(results);
   return (
     <Container>
-      {results?.map((movie) => (
+      {contents?.map((movie) => (
         <Item
           key={movie.id}
           onClick={() => {

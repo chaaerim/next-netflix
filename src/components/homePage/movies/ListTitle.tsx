@@ -1,9 +1,7 @@
-import { IComponentProps } from '@interfaces/interface';
+import { IComponentProps, IListTitleProps } from '@interfaces/interface';
 import styled, { css } from 'styled-components';
-import { useListTitleContext } from '../../../pages/home';
 
-function ListTitle({ children }: IComponentProps) {
-  const { id } = useListTitleContext();
+function ListTitle({ children, id }: IListTitleProps) {
   return <Title value={id}>{children}</Title>;
 }
 

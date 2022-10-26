@@ -17,11 +17,11 @@ export default Header;
 
 const HeaderContainer = styled.nav`
   padding-right: 20px;
-  position: fixed;
-  top: 24px;
+  margin-top: 24px;
   height: 57px;
   display: flex;
   justify-content: space-between;
+  z-index: 3;
 `;
 
 const Logo = styled.img`

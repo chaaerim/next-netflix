@@ -10,10 +10,9 @@ export interface ISearchContextProps extends IComponentProps {
   };
 }
 
-export interface IListTitleProps extends IComponentProps {
-  value: {
-    id: number;
-  };
+export interface IListTitleProps {
+  children: ReactNode;
+  id: number;
 }
 
 export interface IInputEventProps {
@@ -45,10 +44,6 @@ export interface IMovieListResponse {
   total_results: number;
 }
 
-export interface IMoviesContext {
-  results: IMovieInformation[];
-}
-
 export interface IUpComingMoviesContext {
   id: number;
   results: IMovieInformation[] | undefined;
@@ -75,4 +70,9 @@ export interface IResponse {
   }[];
   total_pages: number;
   total_results: number;
+}
+
+export interface IResultsProps {
+  contents: IMovieInformation[] | undefined;
+  id: nuber;
 }

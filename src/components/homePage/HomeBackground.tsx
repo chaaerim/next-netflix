@@ -37,6 +37,7 @@ function HomeBackground() {
 export default HomeBackground;
 
 const BackgroundImg = styled.img`
+  z-index: 0;
   height: 415px;
   width: 100%;
   object-fit: cover;
