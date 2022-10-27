@@ -11,6 +11,12 @@ body {
 
   background: #000000;
   color: #ffffff;
+
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -53,13 +59,15 @@ input:focus {
 
 @media (max-width: 400px) {
   main,
-  footer {
+  footer,
+  nav {
     width: 100vw;
   }
 }
 @media (min-width: 400px) {
   main,
-  footer {
+  footer,
+  nav {
     width: 400px;
   }
 }

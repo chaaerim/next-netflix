@@ -10,6 +10,11 @@ export interface ISearchContextProps extends IComponentProps {
   };
 }
 
+export interface IListTitleProps {
+  children: ReactNode;
+  top: boolean;
+}
+
 export interface IInputEventProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onReset: () => void;
@@ -37,4 +42,26 @@ export interface IMovieListResponse {
   results: IMovieInformation[];
   total_pages: number;
   total_results: number;
+}
+
+export interface IUpComingMoviesContext {
+  id: number;
+  results: IMovieInformation[] | undefined;
+}
+
+export interface IResponse {
+  dates: { maximum: string; minimum: string };
+  page: number;
+  results: IMovieInformation[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface IResultsProps {
+  contents: IMovieInformation[] | undefined;
+  top: boolean;
+}
+
+export interface IPrams {
+  id: string;
 }

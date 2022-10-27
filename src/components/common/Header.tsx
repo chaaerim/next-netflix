@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-const headerItems = ['TV Shows', 'Movies', 'My List'];
+const headerItems = [
+  { text: 'TV Shows', id: 1 },
+  { text: 'Movies', id: 2 },
+  { text: 'My List', id: 3 },
+];
 
 function Header() {
   return (
     <HeaderContainer>
       <Logo src="/assets/header/netflix-icon.svg" />
       {headerItems.map((item) => {
-        return <Item key={Date.now()}>{item}</Item>;
+        return <Item key={item.id}>{item.text}</Item>;
       })}
     </HeaderContainer>
   );
@@ -15,13 +19,15 @@ function Header() {
 
 export default Header;
 
-const HeaderContainer = styled.div`
-  position: fixed;
-  top: 24px;
-  height: 57px;
-  width: 338px;
+const HeaderContainer = styled.nav`
+  position: relative;
+  z-index: 2;
+  padding-right: 20px;
+  padding-top: 24px;
+  /* height: 57px; */
   display: flex;
   justify-content: space-between;
+  background: transparent;
 `;
 
 const Logo = styled.img`
