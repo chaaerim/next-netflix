@@ -26,17 +26,29 @@ function HomeBackground() {
   );
 
   return (
-    <BackgroundImg
-      src={`${process.env.NEXT_PUBLIC_POSTER_PATH}${data?.results[2]?.backdrop_path}`}
-    />
+    <Container>
+      <BackgroundImg
+        src={`${process.env.NEXT_PUBLIC_POSTER_PATH}${data?.results[2]?.backdrop_path}`}
+      />
+    </Container>
   );
 }
 
 export default HomeBackground;
 
-const BackgroundImg = styled.img`
-  z-index: 0;
-  height: 415px;
+const Container = styled.div`
+  height: 400px;
   width: 100%;
+  object-fit: cover;
+  z-index: 1;
+`;
+
+const BackgroundImg = styled.img`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 460px;
+
   object-fit: cover;
 `;

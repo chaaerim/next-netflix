@@ -16,12 +16,14 @@ function Header() {
 export default Header;
 
 const HeaderContainer = styled.nav`
+  position: relative;
+  z-index: 2;
   padding-right: 20px;
-  margin-top: 24px;
-  height: 57px;
+  padding-top: 24px;
+  /* height: 57px; */
   display: flex;
   justify-content: space-between;
-  z-index: 3;
+  background: transparent;
 `;
 
 const Logo = styled.img`

@@ -2,7 +2,7 @@ import { IComponentProps } from '@interfaces/interface';
 import styled from 'styled-components';
 import DetailDescription from './DetailDescription';
 import DetailImage from './DetailImage';
-import PlayButton from './PlayButton';
+import PlayButton from './PlayButton'
 
 function Detail({ children }: IComponentProps) {
   return (

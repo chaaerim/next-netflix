@@ -22,4 +22,5 @@ export default Object.assign(Home, {
 
 const Container = styled.main`
   padding-bottom: 60px;
+  position: relative;
 `;
