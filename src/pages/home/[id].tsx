@@ -4,8 +4,8 @@ import ListTitle from '@components/homePage/movies/ListTitle';
 import { IMovieInformation, IPrams } from '@interfaces/interface';
 import { useQuery } from '@tanstack/react-query';
 
-import { getDetail } from '../../api/getMovies';
-import queryKeys from '../../api/queryKeys';
+import { getDetail } from '@apis/getMovies';
+import queryKeys from '@apis/queryKeys';
 
 export async function getServerSideProps({ params }: { params: IPrams }) {
   const movie_id = params.id;

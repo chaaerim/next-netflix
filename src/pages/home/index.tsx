@@ -9,8 +9,8 @@ import {
   getPopular,
   getTopRated,
   getUpcoming,
-} from '../../api/getMovies';
-import queryKeys from '../../api/queryKeys';
+} from '@apis/getMovies';
+import queryKeys from '@apis/queryKeys';
 
 function HomePage() {
   const { data: upComingMovies, status: upComingStatus } = useQuery<IResponse>(
