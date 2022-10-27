@@ -43,6 +43,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
             rel="stylesheet"
           />
+          <meta
+            httpEquiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+          />
         </Head>
 
         <body>
