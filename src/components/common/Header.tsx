@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-const headerItems = ['TV Shows', 'Movies', 'My List'];
+const headerItems = [
+  { text: 'TV Shows', id: 1 },
+  { text: 'Movies', id: 2 },
+  { text: 'My List', id: 3 },
+];
 
 function Header() {
   return (
     <HeaderContainer>
       <Logo src="/assets/header/netflix-icon.svg" />
       {headerItems.map((item) => {
-        return <Item>{item}</Item>;
+        return <Item key={item.id}>{item.text}</Item>;
       })}
     </HeaderContainer>
   );

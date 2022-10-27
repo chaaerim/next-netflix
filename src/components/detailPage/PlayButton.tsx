@@ -15,6 +15,7 @@ export default PlayButton;
 const Container = styled.div`
   margin: auto;
   width: 80%;
+  margin-top: 13px;
 `;
 
 const Item = styled.div`
