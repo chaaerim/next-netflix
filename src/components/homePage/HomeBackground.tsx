@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { getNowPlaying } from '@apis/getMovies';
 import { IResponse } from '@interfaces/interface';
-import queryKeys from '../../api/queryKeys';
+import queryKeys from '@apis/queryKeys';
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
