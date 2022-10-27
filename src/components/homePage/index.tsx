@@ -6,18 +6,14 @@ import ListTitle from './movies/ListTitle';
 import MovieLists from './movies/MovieLists';
 
 function Home({ children }: IComponentProps) {
-  return (
-    <>
-      <Container>{children}</Container>
-    </>
-  );
+  return <Container>{children}</Container>;
 }
 
 export default Object.assign(Home, {
   Background: HomeBackground,
   ButtonBar: HomeButtons,
-  ListTitle: ListTitle,
-  MovieLists: MovieLists,
+  ListTitle,
+  MovieLists,
 });
 
 const Container = styled.main`

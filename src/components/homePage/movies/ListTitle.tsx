@@ -1,4 +1,4 @@
-import { IComponentProps, IListTitleProps } from '@interfaces/interface';
+import { IListTitleProps } from '@interfaces/interface';
 import styled, { css } from 'styled-components';
 
 function ListTitle({ children, top }: IListTitleProps) {

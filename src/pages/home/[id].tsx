@@ -8,27 +8,27 @@ import { getDetail } from '@apis/getMovies';
 import queryKeys from '@apis/queryKeys';
 
 export async function getServerSideProps({ params }: { params: IPrams }) {
-  const movie_id = params.id;
+  const movieId = params.id;
 
   return {
     props: {
-      movie_id: movie_id,
+      movieId,
     },
   };
 }
 
-function DetailPage({ movie_id }: { movie_id: string }) {
-  const { data, status } = useQuery<IMovieInformation>(
-    [queryKeys.Detail, movie_id],
-    () => getDetail(movie_id)
+function DetailPage({ movieId }: { movieId: string }) {
+  const { data } = useQuery<IMovieInformation>(
+    [queryKeys.Detail, movieId],
+    () => getDetail(movieId)
   );
 
   return (
     <Detail>
       <Detail.MovieImg image={data?.backdrop_path} />
       <Detail.PlayButton />
-      <ListTitle top={true}>Previews</ListTitle>
-      <Detail.Description text={data?.overview}></Detail.Description>
+      <ListTitle top>Previews</ListTitle>
+      <Detail.Description text={data?.overview} />
       <Footer />
     </Detail>
   );

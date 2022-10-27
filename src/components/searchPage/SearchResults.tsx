@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 import Image from 'next/image';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { IMovieListResponse } from '@interfaces/interface';
-import { useSearchContext } from './SearchContext';
 import { getInitialSearchList, getSearchList } from '@apis/getSearch';
+import { useSearchContext } from './SearchContext';
 import queryKeys from '../../api/queryKeys';
 
 function SearchResults() {

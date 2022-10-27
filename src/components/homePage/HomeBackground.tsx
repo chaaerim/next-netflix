@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import queryKeys from '../../api/queryKeys';
 import { getNowPlaying } from '@apis/getMovies';
 import { IResponse } from '@interfaces/interface';
+import queryKeys from '../../api/queryKeys';
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -20,10 +20,7 @@ export async function getServerSideProps() {
 }
 
 function HomeBackground() {
-  const { data, status } = useQuery<IResponse>(
-    [queryKeys.BackGround],
-    getNowPlaying
-  );
+  const { data } = useQuery<IResponse>([queryKeys.BackGround], getNowPlaying);
 
   return (
     <Container>

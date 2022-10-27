@@ -13,17 +13,19 @@ import {
 import queryKeys from '@apis/queryKeys';
 
 function HomePage() {
-  const { data: upComingMovies, status: upComingStatus } = useQuery<IResponse>(
+  const { data: upComingMovies } = useQuery<IResponse>(
     [queryKeys.Upcoming],
     getUpcoming
   );
-  const { data: nowPlayingMovies, status: nowPlayingStatus } =
-    useQuery<IResponse>([queryKeys.NowPlaying], getNowPlaying);
-  const { data: topRatedMovies, status: topRatedStatus } = useQuery<IResponse>(
+  const { data: nowPlayingMovies } = useQuery<IResponse>(
+    [queryKeys.NowPlaying],
+    getNowPlaying
+  );
+  const { data: topRatedMovies } = useQuery<IResponse>(
     [queryKeys.TopRated],
     getTopRated
   );
-  const { data: popularMovies, status: popularStatus } = useQuery<IResponse>(
+  const { data: popularMovies } = useQuery<IResponse>(
     [queryKeys.Popular],
     getPopular
   );
@@ -33,17 +35,14 @@ function HomePage() {
       <Header />
       <Home.Background />
       <Home.ButtonBar />
-      <Home.ListTitle top={true}>Previews</Home.ListTitle>
-      <Home.MovieLists top={true} contents={upComingMovies?.results} />
+      <Home.ListTitle top>Previews</Home.ListTitle>
+      <Home.MovieLists top contents={upComingMovies?.results} />
       <Home.ListTitle top={false}>Now Playing</Home.ListTitle>
       <Home.MovieLists top={false} contents={nowPlayingMovies?.results} />
       <Home.ListTitle top={false}>Top Rated</Home.ListTitle>
       <Home.MovieLists top={false} contents={topRatedMovies?.results} />
       <Home.ListTitle top={false}>Popular</Home.ListTitle>
-      <Home.MovieLists
-        top={false}
-        contents={popularMovies?.results}
-      ></Home.MovieLists>
+      <Home.MovieLists top={false} contents={popularMovies?.results} />
       <Footer />
     </Home>
   );
@@ -51,7 +50,6 @@ function HomePage() {
 
 export default HomePage;
 
-//api fetching with SSR
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 

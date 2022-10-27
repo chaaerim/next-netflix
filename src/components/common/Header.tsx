@@ -10,9 +10,9 @@ function Header() {
   return (
     <HeaderContainer>
       <Logo src="/assets/header/netflix-icon.svg" />
-      {headerItems.map((item) => {
-        return <Item key={item.id}>{item.text}</Item>;
-      })}
+      {headerItems.map((item) => (
+        <Item key={item.id}>{item.text}</Item>
+      ))}
     </HeaderContainer>
   );
 }
