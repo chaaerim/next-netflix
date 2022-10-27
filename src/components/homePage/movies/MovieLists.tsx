@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import { IResultsProps } from '@interfaces/interface';
 
-function MovieLists({ contents, id }: IResultsProps) {
+function MovieLists({ contents, top }: IResultsProps) {
   const router = useRouter();
   function onClick(id: number) {
     router.push(`home/${id}`);
@@ -18,7 +18,7 @@ function MovieLists({ contents, id }: IResultsProps) {
           }}
         >
           <MovieImg
-            value={id}
+            value={top}
             src={`${process.env.NEXT_PUBLIC_POSTER_PATH}${movie.backdrop_path}`}
           />
         </Item>
@@ -38,13 +38,13 @@ const Item = styled.div`
   margin-right: 12px;
 `;
 
-const MovieImg = styled.img<{ value: number }>`
+const MovieImg = styled.img<{ value: boolean }>`
   width: 103px;
   height: 161px;
   object-fit: cover;
 
   ${(props) =>
-    props.value === 1 &&
+    props.value === true &&
     css`
       width: 102px;
       height: 102px;

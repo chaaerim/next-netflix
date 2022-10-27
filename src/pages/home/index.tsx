@@ -33,15 +33,15 @@ function HomePage() {
       <Header />
       <Home.Background />
       <Home.ButtonBar />
-      <Home.ListTitle id={1}>Previews</Home.ListTitle>
-      <Home.MovieLists id={1} contents={upComingMovies?.results} />
-      <Home.ListTitle id={0}>Now Playing</Home.ListTitle>
-      <Home.MovieLists id={0} contents={nowPlayingMovies?.results} />
-      <Home.ListTitle id={0}>Top Rated</Home.ListTitle>
-      <Home.MovieLists id={0} contents={topRatedMovies?.results} />
-      <Home.ListTitle id={0}>Popular</Home.ListTitle>
+      <Home.ListTitle top={true}>Previews</Home.ListTitle>
+      <Home.MovieLists top={true} contents={upComingMovies?.results} />
+      <Home.ListTitle top={false}>Now Playing</Home.ListTitle>
+      <Home.MovieLists top={false} contents={nowPlayingMovies?.results} />
+      <Home.ListTitle top={false}>Top Rated</Home.ListTitle>
+      <Home.MovieLists top={false} contents={topRatedMovies?.results} />
+      <Home.ListTitle top={false}>Popular</Home.ListTitle>
       <Home.MovieLists
-        id={0}
+        top={false}
         contents={popularMovies?.results}
       ></Home.MovieLists>
       <Footer />

@@ -12,7 +12,7 @@ export interface ISearchContextProps extends IComponentProps {
 
 export interface IListTitleProps {
   children: ReactNode;
-  id: number;
+  top: boolean;
 }
 
 export interface IInputEventProps {
@@ -59,7 +59,7 @@ export interface IResponse {
 
 export interface IResultsProps {
   contents: IMovieInformation[] | undefined;
-  id: number;
+  top: boolean;
 }
 
 export interface IPrams {
