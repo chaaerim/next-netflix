@@ -4,14 +4,20 @@ import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { IMovieListResponse } from '@interfaces/interface';
 import { getInitialSearchList, getSearchList } from '@apis/getSearch';
 import queryKeys from '@apis/queryKeys';
+import { useRouter } from 'next/router';
 import { useSearchContext } from './SearchContext';
 
 function SearchResults() {
+  const router = useRouter();
   const { input } = useSearchContext();
   const { data, isSuccess, isLoading } = useQuery<IMovieListResponse>(
     [queryKeys.Search, input],
     () => (input ? getSearchList(input) : getInitialSearchList())
   );
+
+  const handleDetail = (id: number) => {
+    router.push(`home/${id}`);
+  };
 
   if (isLoading) {
     return (
@@ -32,7 +38,7 @@ function SearchResults() {
     return (
       <Container>
         {data.results.map((movie) => (
-          <Item key={movie.id}>
+          <Item key={movie.id} onClick={() => handleDetail(movie.id)}>
             <FlexBox>
               {movie.backdrop_path ? (
                 <Image
