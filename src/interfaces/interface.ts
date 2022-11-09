@@ -65,3 +65,8 @@ export interface IResultsProps {
 export interface IPrams {
   id: string;
 }
+
+export interface IFooterRoute {
+  src: string;
+  title: string;
+}

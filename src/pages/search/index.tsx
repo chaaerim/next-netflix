@@ -1,6 +1,6 @@
 import Search from '@components/searchPage';
-import useSearch from '@components/searchPage/useSearch';
 import Footer from '@components/common/Footer';
+import useSearch from '@hooks/useSearch';
 
 function SearchPage() {
   const { input, handleInputChange, handleInputReset } = useSearch('');

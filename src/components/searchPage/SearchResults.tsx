@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { IMovieListResponse } from '@interfaces/interface';
 import { getInitialSearchList, getSearchList } from '@apis/getSearch';
+import queryKeys from '@apis/queryKeys';
 import { useSearchContext } from './SearchContext';
-import queryKeys from '../../api/queryKeys';
 
 function SearchResults() {
   const { input } = useSearchContext();

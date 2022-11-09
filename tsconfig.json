@@ -18,7 +18,8 @@
       "@assets/*": ["./public/assets/*"],
       "@components/*": ["./src/components/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@apis/*": ["./src/api/*"]
+      "@apis/*": ["./src/api/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

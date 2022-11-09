@@ -2,27 +2,33 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { IFooterRoute } from '@interfaces/interface';
 
 const footerItems = [
   {
+    id: 1,
     src: 'home',
-    text: 'Home',
+    title: 'Home',
   },
   {
+    id: 2,
     src: 'search',
-    text: 'Search',
+    title: 'Search',
   },
   {
+    id: 3,
     src: 'comingsoon',
-    text: 'Coming Soon',
+    title: 'Coming Soon',
   },
   {
+    id: 4,
     src: 'download',
-    text: 'Downloads',
+    title: 'Downloads',
   },
   {
+    id: 5,
     src: 'more',
-    text: 'More',
+    title: 'More',
   },
 ];
 
@@ -30,16 +36,13 @@ function Footer() {
   const router = useRouter();
   const [currentPath, setCurrentPath] = useState(router.pathname);
 
-  const handleRouting = ({ src, text }: { src: string; text: string }) => {
+  const handleRouting = ({ src, title }: IFooterRoute) => {
     setCurrentPath(`/${src}`);
-    switch (text) {
-      case 'Home':
-        router.push('/home');
-        break;
-      case 'Search':
-        router.push('/search');
-        break;
-      default:
+
+    if (title === 'Home') {
+      router.push('/home');
+    } else if (title === 'Search') {
+      router.push('/search');
     }
   };
 
@@ -49,16 +52,16 @@ function Footer() {
         const isSelected = currentPath === `/${item.src}`;
 
         return (
-          <Item key={item.text} onClick={() => handleRouting(item)}>
+          <Item key={item.id} onClick={() => handleRouting(item)}>
             <Image
-              alt={item.text}
+              alt={item.title}
               src={`/assets/footer/${item.src}${
                 isSelected ? '-select' : ''
               }.svg`}
               width={24}
               height={24}
             />
-            <Title selected={isSelected}>{item.text}</Title>
+            <Title selected={isSelected}>{item.title}</Title>
           </Item>
         );
       })}
